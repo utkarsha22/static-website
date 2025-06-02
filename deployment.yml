@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: us-static-Deployment
+spec: 
+  replicas: 3
+  selector:
+    matchLabels:
+      app: us-static-site
+  template:
+    metadata:
+      labels:
+        app: us-static-site
+    spec:
+      containers:
+        - name: us-static-container
+          image: utkarshashelar/us-static-site
+          ports:
+            - containerPort: 80
